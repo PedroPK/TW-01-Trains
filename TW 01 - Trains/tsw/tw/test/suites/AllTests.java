@@ -5,6 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import tw.graph.GraphTest;
+import tw.graph.VertexTest;
 import tw.io.InputProcessorTest;
 import tw.regexp.RegExpProcessorTest;
 
@@ -12,7 +13,8 @@ import tw.regexp.RegExpProcessorTest;
 @SuiteClasses({
 	InputProcessorTest.class,
 	RegExpProcessorTest.class,
-	GraphTest.class
+	GraphTest.class,
+	VertexTest.class
 })
 public class AllTests {
 
