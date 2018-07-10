@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class RegExpProcessor {
 	
-	public static boolean isInputValid(String pInput) {
+	public static boolean isPathValid(String pInput) {
 		boolean response = false;
 		
 		if ( pInput != null && pInput.length() > 0 ) {
