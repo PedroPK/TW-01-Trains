@@ -2,6 +2,10 @@ package tw.graph;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+
+import tw.io.InputProcessor;
+import tw.regexp.RegExpProcessor;
 
 public class Graph {
 	
@@ -61,6 +65,27 @@ public class Graph {
 		}
 		
 		return response;
+	}
+	
+	public void insertVertices(String pInput) {
+		Set<String> paths = InputProcessor.getPaths(pInput);
+		
+		for ( String path: paths ) {
+			String	firstVertexName			= RegExpProcessor.getFirstVertex(path);
+			String	secondVertexName		= RegExpProcessor.getSecondVertex(path);
+			int		distanceVertexName		= RegExpProcessor.getDistance(path);
+			
+			if ( !this.containsVertex(firstVertexName) ) {
+				Vertex vertex = new Vertex(path);
+				this.addVertex(vertex.getName(), vertex);
+			} else {
+				this.getVertex(firstVertexName).setDistanceNextVertex(distanceVertexName);
+				
+				Vertex vertex = new Vertex();
+				vertex.setName(secondVertexName);
+				this.getVertex(firstVertexName).setNextVertex(vertex);
+			}
+		}
 	}
 	
 }

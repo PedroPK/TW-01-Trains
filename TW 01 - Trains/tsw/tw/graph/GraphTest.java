@@ -38,25 +38,7 @@ public class GraphTest {
 	@Test
 	public void createTwoVertices() {
 		String input = "AB5, BC4";
-		Set<String> paths = InputProcessor.getPaths(input);
-		
-		for ( String path: paths ) {
-			String	firstVertexName			= RegExpProcessor.getFirstVertex(path);
-			String	secondVertexName		= RegExpProcessor.getSecondVertex(path);
-			int		distanceVertexName		= RegExpProcessor.getDistance(path);
-			
-			if ( !this.aGraph.containsVertex(firstVertexName) ) {
-				Vertex vertex = new Vertex(path);
-				this.aGraph.addVertex(vertex.getName(), vertex);
-			} else {
-				this.aGraph.getVertex(firstVertexName).setDistanceNextVertex(distanceVertexName);
-				
-				Vertex vertex = new Vertex();
-				vertex.setName(secondVertexName);
-				this.aGraph.getVertex(firstVertexName).setNextVertex(vertex);
-			}
-			
-		}
+		this.aGraph.insertVertices(input);
 		
 		assertNotNull( this.aGraph );
 		assertNotNull( this.aGraph.getVertex("A") );
@@ -74,21 +56,7 @@ public class GraphTest {
 	@Test
 	public void testContinuousPathBetweenThreeVertices() {
 		String input = "AB5, BC4";
-		Set<String> paths = InputProcessor.getPaths(input);
-		
-		for ( String path: paths ) {
-			String	firstVertexName			= RegExpProcessor.getFirstVertex(path);
-			String	secondVertexName		= RegExpProcessor.getSecondVertex(path);
-			int		distanceVertexName		= RegExpProcessor.getDistance(path);
-			
-			if ( !this.aGraph.containsVertex(firstVertexName) ) {
-				Vertex vertex = new Vertex(path);
-				this.aGraph.addVertex(vertex.getName(), vertex);
-			} else {
-				this.aGraph.getVertex(firstVertexName).setDistanceNextVertex(distanceVertexName);
-				this.aGraph.getVertex(firstVertexName).getVertex(secondVertexName);
-			}
-		}
+		this.aGraph.insertVertices(input);
 		
 		assertNotNull( this.aGraph );
 		assertNotNull( this.aGraph.getVertex("A") );
