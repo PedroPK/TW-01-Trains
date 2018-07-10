@@ -14,15 +14,18 @@ public class RegExpProcessor {
 			String distance = "[1-9]";
 			String separator = "(, )";
 			
+			//					[a-zA-Z]		[a-zA-Z]		[0-9]
+			String minimalPath = firstVertex + secondVertex + distance;
+			
 			//		(([a-zA-Z][a-zA-Z][0-9])((, )[a-zA-Z][a-zA-Z][0-9])*)
-			String pattern =
+			String pattern = 
 				"(" +
 					"(" +
-						firstVertex + secondVertex + distance +
+						minimalPath +
 					")" +
 					"(" + 
 						separator +
-						firstVertex + secondVertex + distance +
+						minimalPath +
 					")*" +
 				")"
 			;
