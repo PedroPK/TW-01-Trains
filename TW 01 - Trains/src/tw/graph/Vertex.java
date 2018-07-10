@@ -63,18 +63,50 @@ public class Vertex {
 	/**
 	 * Setters
 	 * 
-	 * @param aName
-	 * @param aNextVertex
-	 * @param aDistanceNextVertex
+	 * @param pName
+	 * @param pNextVertex
+	 * @param pDistanceNextVertex
 	 */
-	public void setName(String aName) {
-		this.aName = aName;
+	public void setName(String pName) {
+		this.aName = pName;
 	}
-	public void setNextVertex(Vertex aNextVertex) {
-		this.aNextVertex = aNextVertex;
+	public void setNextVertex(Vertex pNextVertex) {
+		this.aNextVertex = pNextVertex;
 	}
-	public void setDistanceNextVertex(int aDistanceNextVertex) {
-		this.aDistanceNextVertex = aDistanceNextVertex;
+	public void setDistanceNextVertex(int pDistanceNextVertex) {
+		this.aDistanceNextVertex = pDistanceNextVertex;
+	}
+	
+	public boolean containsVertex( String pName ) {
+		boolean response = false;
+		
+		if ( this.aName != null && this.aName.length() > 0 ) {
+			if ( this.aName.equals(pName) ) {
+				response = true;
+			} else {
+				if ( this.aNextVertex != null ) {
+					response = this.aNextVertex.containsVertex(pName);
+				}
+			}
+		}
+		
+		return response;
+	}
+	
+	public Vertex getVertex( String pName ) {
+		Vertex response = null;
+		
+		if ( this.aName != null && this.aName.length() > 0 ) {
+			if ( this.aName.equals(pName) ) {
+				response = this;
+			} else {
+				if ( this.aNextVertex != null ) {
+					response = this.aNextVertex.getVertex(pName);
+				}
+			}
+		}
+		
+		return response;
 	}
 	
 }
