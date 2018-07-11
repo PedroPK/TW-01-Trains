@@ -13,7 +13,7 @@ public class VertexTest {
 		
 		assertNotNull(			vertex);
 		assertNull(				vertex.getName());
-		assertNull(				vertex.getNextVertex());
+		assertNull(				vertex.getVertices());
 		assertEquals(	0,		vertex.getDistanceNextVertex());
 	}
 	
@@ -25,7 +25,7 @@ public class VertexTest {
 		
 		assertNotNull(			vertex);
 		assertNull(				vertex.getName());
-		assertNull(				vertex.getNextVertex());
+		assertNull(				vertex.getVertices());
 		assertEquals(	0,		vertex.getDistanceNextVertex());
 	}
 	
@@ -37,13 +37,13 @@ public class VertexTest {
 		
 		assertNotNull(			vertex);
 		assertNotNull(			vertex.getName());
-		assertNotNull(			vertex.getNextVertex());
+		assertNotNull(			vertex.getVertices());
 		assertEquals(	5,		vertex.getDistanceNextVertex());
 		
 		assertEquals(	"A",	vertex.getName());
-		assertEquals(	"B",	vertex.getNextVertex().getName());
-		assertNull(				vertex.getNextVertex().getNextVertex());
-		assertEquals(	0,		vertex.getNextVertex().getDistanceNextVertex());
+		assertNotNull(			vertex.getVertex("B"));
+		assertNull(				vertex.getVertex("B").getVertices());
+		assertEquals(	0,		vertex.getVertex("B").getDistanceNextVertex());
 	}
 	
 }

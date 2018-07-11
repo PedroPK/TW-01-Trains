@@ -19,14 +19,14 @@ public class Graph {
 		if ( !this.aVertices.containsKey(pNameVertex) ) {
 			this.aVertices.put(pNameVertex, pVertex);
 		} else {
-			this.aVertices.get(pNameVertex).setNextVertex(pVertex);
+			this.aVertices.get(pNameVertex).addVertex(pVertex);
 		}
 	}
 	public void addVertex(Vertex pVertex) {
 		if ( !this.aVertices.containsKey(pVertex.getName()) ) {
 			this.aVertices.put(pVertex.getName(), pVertex);
 		} else {
-			this.aVertices.get(pVertex.getName()).setNextVertex(pVertex);
+			this.aVertices.get(pVertex.getName()).addVertex(pVertex);
 		}
 		
 		
@@ -83,7 +83,7 @@ public class Graph {
 				
 				Vertex vertex = new Vertex();
 				vertex.setName(secondVertexName);
-				this.getVertex(firstVertexName).setNextVertex(vertex);
+				this.getVertex(firstVertexName).addVertex(vertex);
 			}
 		}
 	}

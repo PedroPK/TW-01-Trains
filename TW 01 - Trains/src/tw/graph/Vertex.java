@@ -1,5 +1,8 @@
 package tw.graph;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import tw.regexp.RegExpProcessor;
 
 public class Vertex {
@@ -7,9 +10,9 @@ public class Vertex {
 	/**
 	 * Attributes
 	 */
-	private String	aName;
-	private Vertex	aNextVertex;
-	private int		aDistanceNextVertex;
+	private String					aName;
+	private Map<String, Vertex>		aVertices;
+	private int						aDistanceNextVertex;
 	
 	/**
 	 * Constructor
@@ -30,19 +33,27 @@ public class Vertex {
 			Vertex nextVertex = new Vertex();
 			nextVertex.setName(secondVertexName);
 			
-			this.aNextVertex = nextVertex;
+			addVertex(nextVertex);
 			
 			this.aDistanceNextVertex = distanceName;
 		}
 	}
+	
+	public void addVertex(Vertex pVertex) {
+		if ( this.aVertices == null && pVertex != null) {
+			this.aVertices = new TreeMap<String, Vertex>();
+		}
+		this.aVertices.put(pVertex.getName(), pVertex);
+	}
+	
 	public Vertex(
 		String	pName,
 		Vertex	pNextVertex,
 		int		pDistanceNexVertex
 	) {
 		this.aName					= pName;
-		this.aNextVertex			= pNextVertex;
 		this.aDistanceNextVertex	= pDistanceNexVertex;
+		addVertex(pNextVertex);
 	}
 	
 	/**
@@ -51,13 +62,15 @@ public class Vertex {
 	 * @return
 	 */
 	public String getName() {
-		return aName;
+		return this.aName;
 	}
-	public Vertex getNextVertex() {
-		return aNextVertex;
+	
+	public Map<String, Vertex> getVertices() {
+		return this.aVertices;
 	}
+	
 	public int getDistanceNextVertex() {
-		return aDistanceNextVertex;
+		return this.aDistanceNextVertex;
 	}
 	
 	/**
@@ -70,8 +83,8 @@ public class Vertex {
 	public void setName(String pName) {
 		this.aName = pName;
 	}
-	public void setNextVertex(Vertex pNextVertex) {
-		this.aNextVertex = pNextVertex;
+	public void setVertices(Map<String, Vertex> pVertices) {
+		this.aVertices = pVertices;
 	}
 	public void setDistanceNextVertex(int pDistanceNextVertex) {
 		this.aDistanceNextVertex = pDistanceNextVertex;
@@ -84,8 +97,15 @@ public class Vertex {
 			if ( this.aName.equals(pName) ) {
 				response = true;
 			} else {
-				if ( this.aNextVertex != null ) {
-					response = this.aNextVertex.containsVertex(pName);
+				if ( this.aVertices != null ) {
+					for ( String vertexName: this.aVertices.keySet() ) {
+						response = this.aVertices.get(vertexName).containsVertex(pName);
+						
+						// If the Vertex was found
+						if ( response ) {
+							break;
+						}
+					}
 				}
 			}
 		}
@@ -100,8 +120,17 @@ public class Vertex {
 			if ( this.aName.equals(pName) ) {
 				response = this;
 			} else {
-				if ( this.aNextVertex != null ) {
-					response = this.aNextVertex.getVertex(pName);
+				if ( this.aVertices != null ) {
+					//response = this.aVertices.getVertex(pName);
+					
+					for ( String vertexName: this.aVertices.keySet() ) {
+						response = this.aVertices.get(vertexName).getVertex(pName);
+						
+						// If the Vertex was found
+						if ( response != null ) {
+							break;
+						}
+					}
 				}
 			}
 		}
