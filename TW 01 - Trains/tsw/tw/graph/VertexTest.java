@@ -42,6 +42,7 @@ public class VertexTest {
 		
 		assertEquals(	"A",	vertex.getName());
 		assertNotNull(			vertex.getVertex("B"));
+		assertEquals(	"B",	vertex.getVertex("B").getName());
 		assertNull(				vertex.getVertex("B").getVertices());
 		assertEquals(	0,		vertex.getVertex("B").getDistanceNextVertex());
 	}

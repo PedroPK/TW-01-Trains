@@ -29,10 +29,12 @@ public class GraphTest {
 			this.aGraph.addVertex(vertex.getName(), vertex);
 		}
 		
-		assertNotNull(	this.aGraph );
-		assertNotNull(	this.aGraph.getVertex("A") );
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph );
+		assertNotNull(			this.aGraph.getVertex("A") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
+		assertEquals(	"B",	this.aGraph.getVertex("A").getVertex("B").getName() );
 		assertEquals(	5,		this.aGraph.getVertex("A").getDistanceNextVertex() );
 	}
 	
@@ -41,16 +43,20 @@ public class GraphTest {
 		String input = "AB5, BC4";
 		this.aGraph.insertVertices(input);
 		
-		assertNotNull(	this.aGraph );
-		assertNotNull(	this.aGraph.getVertex("A") );
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph );
+		assertNotNull(			this.aGraph.getVertex("A") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
+		assertEquals(	"B",	this.aGraph.getVertex("A").getVertex("B").getName() );
 		assertEquals(	5,		this.aGraph.getVertex("A").getDistanceNextVertex() );
 		
-		assertNotNull(	this.aGraph );
-		assertNotNull(	this.aGraph.getVertex("B") );
-		assertNotNull(	this.aGraph.getVertex("B").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("B").getVertex("C") );
+		assertNotNull(			this.aGraph );
+		assertNotNull(			this.aGraph.getVertex("B") );
+		assertNotNull(			this.aGraph.getVertex("B").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("B").getVertex("C") );
+		assertEquals(	"C",	this.aGraph.getVertex("B").getVertex("C").getName() );
 		assertEquals(	4,		this.aGraph.getVertex("B").getDistanceNextVertex() );
 	}
 	
@@ -59,16 +65,19 @@ public class GraphTest {
 		String input = "AB5, BC4";
 		this.aGraph.insertVertices(input);
 		
-		assertNotNull( this.aGraph );
-		assertNotNull( this.aGraph.getVertex("A") );
+		assertNotNull(			this.aGraph );
+		assertNotNull(			this.aGraph.getVertex("A") );
+		assertEquals(	"A",	this.aGraph.getVertex("A").getName() );
 		
 		// Vertex B
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
+		assertEquals(	"B",	this.aGraph.getVertex("A").getVertex("B").getName() );
 		
 		// Vertex C
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
+		assertEquals(	"C",	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getName() );
 	}
 	
 	@Test
@@ -76,20 +85,24 @@ public class GraphTest {
 		String input = "AB5, BC4, CD8";
 		this.aGraph.insertVertices(input);
 		
-		assertNotNull(	this.aGraph );
-		assertNotNull(	this.aGraph.getVertex("A") );
+		assertNotNull(			this.aGraph );
+		assertNotNull(			this.aGraph.getVertex("A") );
+		assertEquals(	"A",	this.aGraph.getVertex("A").getName() );
 		
 		// Vertex B
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
+		assertEquals(	"B",	this.aGraph.getVertex("A").getVertex("B").getName() );
 		
 		// Vertex C
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
+		assertEquals(	"C",	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getName() );
 		
 		// Vertex D
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
+		assertEquals(	"D",	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getName() );
 	}
 	
 	@Test
