@@ -71,11 +71,13 @@ public class GraphTest {
 		
 		// Vertex B
 		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
 		assertEquals(	"B",	this.aGraph.getVertex("A").getVertex("B").getName() );
 		
 		// Vertex C
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertices().size() );
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
 		assertEquals(	"C",	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getName() );
 	}
@@ -91,16 +93,19 @@ public class GraphTest {
 		
 		// Vertex B
 		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
 		assertEquals(	"B",	this.aGraph.getVertex("A").getVertex("B").getName() );
 		
 		// Vertex C
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertices().size() );
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
 		assertEquals(	"C",	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getName() );
 		
 		// Vertex D
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices().size() );
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
 		assertEquals(	"D",	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getName() );
 	}
@@ -114,20 +119,24 @@ public class GraphTest {
 		assertNotNull( this.aGraph.getVertex("A") );
 		
 		// Vertex B
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
 		
 		// Vertex C
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
 		
 		// Vertex D
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
 		
 		// Vertex E
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("E") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("E") );
 	}
 	
 	@Test
@@ -139,22 +148,26 @@ public class GraphTest {
 		assertNotNull( this.aGraph.getVertex("A") );
 		
 		// Vertex B
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
 		
 		// Vertex C
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getName() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getName() );
 		
 		// Vertex D
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
 		
 		/* Edge between D and C Vertices
 		 *														B				C				D				C
 		 */
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("C") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("C") );
 	}
 	
 	@Test
@@ -166,22 +179,26 @@ public class GraphTest {
 		assertNotNull( this.aGraph.getVertex("A") );
 		
 		// Vertex B
-		assertNotNull(	this.aGraph.getVertex("A").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B") );
 		
 		// Vertex C
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C") );
 		
 		// Vertex D
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices() );
+		assertEquals(	1,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D") );
 		
 		/* Edge between D and E Vertices
 		 *														B				C				D				C
 		 */
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
-		assertNotNull(	this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("E") );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
+		assertEquals(	2,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("E") );
 	}
 	
 	// String input = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
