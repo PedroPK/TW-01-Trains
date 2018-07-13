@@ -1,7 +1,6 @@
 package tw.graph;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.util.Set;
 
@@ -198,6 +197,13 @@ public class GraphTest {
 		 */
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices() );
 		assertEquals(	2,		this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertices().size() );
+		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("C") );
+		
+		Vertex cFromAandB			= this.aGraph.getVertex("A").getVertex("B").getVertex("C");
+		Vertex cFromAandBandCandD	= this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("C");
+		assertEquals(	cFromAandB,		cFromAandBandCandD	);
+		assertSame(		cFromAandB,		cFromAandBandCandD	);
+		
 		assertNotNull(			this.aGraph.getVertex("A").getVertex("B").getVertex("C").getVertex("D").getVertex("E") );
 	}
 	

@@ -113,18 +113,27 @@ public class Vertex {
 		return response;
 	}
 	
-	public Vertex getVertex( String pName ) {
+	public Vertex getVertex( String pName) {
+		Vertex response = getVertex( pName, 10);
+		
+		return response;
+	}
+	
+	public Vertex getVertex( String pName, int pHops ) {
 		Vertex response = null;
 		
 		if ( this.aName != null && this.aName.length() > 0 ) {
 			if ( this.aName.equals(pName) ) {
 				response = this;
 			} else {
-				if ( this.aVertices != null ) {
+				if (
+						this.aVertices != null		&&
+						pHops > 0
+				) {
 					//response = this.aVertices.getVertex(pName);
 					
 					for ( String vertexName: this.aVertices.keySet() ) {
-						response = this.aVertices.get(vertexName).getVertex(pName);
+						response = this.aVertices.get(vertexName).getVertex(pName, pHops - 1);
 						
 						// If the Vertex was found
 						if ( response != null ) {

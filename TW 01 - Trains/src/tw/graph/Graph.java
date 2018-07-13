@@ -81,9 +81,12 @@ public class Graph {
 			} else {
 				this.getVertex(firstVertexName).setDistanceNextVertex(distanceVertexName);
 				
-				Vertex vertex = new Vertex();
-				vertex.setName(secondVertexName);
-				this.getVertex(firstVertexName).addVertex(vertex);
+				Vertex secondVertex = this.getVertex(secondVertexName);
+				if ( this.getVertex(secondVertexName) == null) {
+					secondVertex = new Vertex();
+					secondVertex.setName(secondVertexName);
+				}
+				this.getVertex(firstVertexName).addVertex(secondVertex);
 			}
 		}
 	}
